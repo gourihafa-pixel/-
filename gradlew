@@ -28,6 +28,7 @@ while [ -h "$PRG" ] ; do
         PRG=`dirname "$PRG"`"/$link"
     fi
 done
+
 SAVED="`pwd`"
 cd "`dirname \"$PRG\"`/" >/dev/null
 APP_HOME="`pwd -P`"
@@ -36,7 +37,7 @@ cd "$SAVED" >/dev/null
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
 
-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+DEFAULT_JVM_OPTS='-Xmx64m -Xms64m'
 
 MAX_FD="maximum"
 
@@ -56,6 +57,7 @@ cygwin=false
 msys=false
 darwin=false
 nonstop=false
+
 case "`uname`" in
   CYGWIN* )
     cygwin=true
@@ -79,6 +81,7 @@ if [ -n "$JAVA_HOME" ] ; then
     else
         JAVACMD="$JAVA_HOME/bin/java"
     fi
+
     if [ ! -x "$JAVACMD" ] ; then
         die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME"
     fi
