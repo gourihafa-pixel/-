@@ -17,10 +17,21 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Fix Gradle JVM options
+        run: |
+          export GRADLE_OPTS=""
+          export JAVA_OPTS=""
+
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
+      - name: Check Java
+        run: java -version
+
       - name: Build Release AAB
+        env:
+          JAVA_OPTS: ""
+          GRADLE_OPTS: ""
         run: ./gradlew bundleRelease
 
       - name: Upload AAB
